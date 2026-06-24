@@ -1,5 +1,5 @@
 const authPaths = {
-  "/auth/register": {
+  "api/auth/register": {
     post: {
       tags: ["Authentication"],
       summary: "Register a new user",
@@ -50,7 +50,7 @@ const authPaths = {
     }
   },
 
-  "/auth/register-otp": {
+  "api/auth/register-otp": {
     post: {
       tags: ["Authentication"],
       summary: "Verify registration OTP",
@@ -90,7 +90,7 @@ const authPaths = {
     }
   },
 
-  "/auth/login": {
+  "api/auth/login": {
     post: {
       tags: ["Authentication"],
       summary: "Login user",
@@ -134,7 +134,7 @@ const authPaths = {
     }
   },
 
-  "/auth/logout": {
+  "api/auth/logout": {
     post: {
       tags: ["Authentication"],
       summary: "Logout user",
@@ -170,7 +170,7 @@ const authPaths = {
     }
   },
 
-  "/auth/rotate-token": {
+  "api/auth/rotate-token": {
     post: {
       tags: ["Authentication"],
       summary: "Rotate refresh token",

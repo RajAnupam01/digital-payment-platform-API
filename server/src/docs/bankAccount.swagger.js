@@ -1,5 +1,5 @@
 const bankAccountPaths = {
-  "/bank/balance": {
+  "api/bank/balance": {
     get: {
       tags: ["Bank Account"],
       summary: "Get current account balance",
@@ -26,7 +26,7 @@ const bankAccountPaths = {
     }
   },
 
-  "/bank/account-detail": {
+  "api/bank/account-detail": {
     get: {
       tags: ["Bank Account"],
       summary: "Get bank account details",
@@ -53,7 +53,7 @@ const bankAccountPaths = {
     }
   },
 
-  "/bank/freeze": {
+  "api/bank/freeze": {
     patch: {
       tags: ["Bank Account"],
       summary: "Freeze bank account",
@@ -80,7 +80,7 @@ const bankAccountPaths = {
     }
   },
 
-  "/bank/unfreeze": {
+  "api/bank/unfreeze": {
     patch: {
       tags: ["Bank Account"],
       summary: "Unfreeze bank account",

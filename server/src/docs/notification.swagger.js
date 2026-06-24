@@ -1,5 +1,5 @@
 const notificationPaths = {
-"/notification": {
+"api/notification": {
 get: {
 tags: ["Notifications"],
 summary: "Get all notifications",
@@ -38,7 +38,7 @@ description:"Fetch all notifications for the authenticated user.",
 
 },
 
-"/notification/{id}/read": {
+"api/notification/{id}/read": {
 patch: {
 tags: ["Notifications"],
 summary: "Mark notification as read",
@@ -89,7 +89,7 @@ summary: "Mark notification as read",
 
 },
 
-"/notification/clear": {
+"api/notification/clear": {
 delete: {
 tags: ["Notifications"],
 summary: "Delete all notifications",

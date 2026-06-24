@@ -1,5 +1,5 @@
 const userPaths = {
-  "/users/me": {
+  "api/users/me": {
     get: {
       tags: ["Users"],
       summary: "Get current user profile",
@@ -19,7 +19,7 @@ const userPaths = {
     }
   },
 
-  "/users/{id}": {
+  "api/users/{id}": {
     put: {
       tags: ["Users"],
       summary: "Update user profile",
@@ -93,7 +93,7 @@ const userPaths = {
     }
   },
 
-  "/users/{id}/password": {
+  "api/users/{id}/password": {
     put: {
       tags: ["Users"],
       summary: "Update password",
@@ -141,7 +141,7 @@ const userPaths = {
     }
   },
 
-  "/users/reset-pin/request": {
+  "api/users/reset-pin/request": {
     post: {
       tags: ["Users"],
       summary: "Request PIN reset OTP",
@@ -173,7 +173,7 @@ const userPaths = {
     }
   },
 
-  "/users/reset-pin/verify": {
+  "api/users/reset-pin/verify": {
     post: {
       tags: ["Users"],
       summary: "Verify PIN reset OTP",
@@ -220,7 +220,7 @@ const userPaths = {
     }
   },
 
-  "/users/forgot-password/request": {
+  "api/users/forgot-password/request": {
     post: {
       tags: ["Users"],
       summary: "Request password reset OTP",
@@ -252,7 +252,7 @@ const userPaths = {
     }
   },
 
-  "/users/forgot-password/verify": {
+  "api/users/forgot-password/verify": {
     post: {
       tags: ["Users"],
       summary: "Verify password reset OTP",
