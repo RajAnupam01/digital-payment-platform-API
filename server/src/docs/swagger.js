@@ -19,7 +19,7 @@ const swaggerSpec = {
 
   servers: [
     {
-      url: "https://digital-payment-platform-api.onrender.com",
+      url: "https://digital-payment-platform-api.onrender.com/",
       description: "Development Server"
     }
   ],
