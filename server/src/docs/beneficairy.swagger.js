@@ -1,5 +1,5 @@
 const beneficairyPaths = {
-  "api/beneficairy/add": {
+  "/api/beneficairy/add": {
     post: {
       tags: ["Beneficairy"],
       summary: "Add beneficiary",
@@ -45,7 +45,7 @@ const beneficairyPaths = {
     }
   },
 
-  "api/beneficairy/fetch": {
+  "/api/beneficairy/fetch": {
     get: {
       tags: ["Beneficairy"],
       summary: "Get all beneficiaries",
@@ -68,7 +68,7 @@ const beneficairyPaths = {
     }
   },
 
-  "api/beneficairy/remove/{id}": {
+  "/api/beneficairy/remove/{id}": {
     delete: {
       tags: ["Beneficairy"],
       summary: "Remove beneficiary",

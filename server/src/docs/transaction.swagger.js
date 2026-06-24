@@ -1,5 +1,5 @@
 const transactionPaths = {
-  "api/transaction/transfer": {
+  "/api/transaction/transfer": {
     post: {
       tags: ["Transactions"],
       summary: "Transfer money",

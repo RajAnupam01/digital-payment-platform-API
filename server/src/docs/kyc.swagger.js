@@ -1,5 +1,5 @@
 const kycPaths = {
-  "api/kyc/verify": {
+  "/api/kyc/verify": {
     post: {
       tags: ["KYC"],
       summary: "Complete KYC verification",

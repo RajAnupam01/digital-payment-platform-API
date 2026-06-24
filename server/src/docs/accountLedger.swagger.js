@@ -1,5 +1,5 @@
 const accountLedgerPaths = {
-  "api/accountLedger/{accountId}": {
+  "/api/accountLedger/{accountId}": {
     get: {
       tags: ["Account Ledger"],
       summary: "Get account ledger entries",
@@ -44,7 +44,7 @@ const accountLedgerPaths = {
     }
   },
 
-  "api/accountLedger/entry/{ledgerId}": {
+  "/api/accountLedger/entry/{ledgerId}": {
     get: {
       tags: ["Account Ledger"],
       summary: "Get single ledger entry",
