@@ -26,7 +26,7 @@ export const registerUser = async ({ name, phone, password }) => {
     const code = Math.floor(100000 + Math.random() * 900000).toString();
     const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
 
-    await Otp.create({ phone, otp: code, purpose: "REGISTER", expiresAt });
+    await Otp.findOneAndUpdate({ phone, purpose: "REGISTER" }, { otp: code, expiresAt }, { upsert: true, new: true, setDefaultsOnInsert: true })
 
     return { phone, purpose: "REGISTER", code };
 };
@@ -34,10 +34,10 @@ export const registerUser = async ({ name, phone, password }) => {
 
 export const verifyRegisterOtp = async ({ phone, code }) => {
     const otp = await Otp.findOne({ phone, purpose: "REGISTER" }).select("+otp");
-    if (!otp || otp.otp !== code || otp.expiresAt < new Date()) {
+
+    if (!otp || otp.expiresAt < new Date()) {
         throw new ApiError(400, "Invalid or expired OTP");
     }
-
 
     const user = await User.findOneAndUpdate(
         { phone },

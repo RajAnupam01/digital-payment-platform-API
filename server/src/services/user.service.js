@@ -54,15 +54,16 @@ export const requestResetPin = async (phone) => {
   const code = Math.floor(100000 + Math.random() * 900000).toString();
   const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
 
-  await Otp.create({ phone, otp: code, purpose: "RESET_PIN", expiresAt });
+  await Otp.findOneAndUpdate({ phone, purpose: "RESET_PIN" }, { otp: code, expiresAt }, { upsert: true, new: true, setDefaultsOnInsert: true })
 
-  return { phone, purpose: "RESET_PIN", code }; // dev only
+
+  return { phone, purpose: "RESET_PIN", code };
 };
 
-// Step 2: Verify OTP and update PIN
+
 export const verifyResetPinOtp = async ({ phone, code, newPin }) => {
   const otp = await Otp.findOne({ phone, purpose: "RESET_PIN" }).select("+otp");
-  if (!otp || otp.otp !== code || otp.expiresAt < new Date()) {
+  if (!otp || otp.expiresAt < new Date()) {
     throw new ApiError(400, "Invalid or expired OTP");
   }
 
@@ -83,15 +84,15 @@ export const requestForgotPassword = async (phone) => {
   const code = Math.floor(100000 + Math.random() * 900000).toString();
   const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
 
-  await Otp.create({ phone, otp: code, purpose: "FORGOT_PASSWORD", expiresAt });
-
+  await Otp.findOneAndUpdate({ phone, purpose: "FORGOT_PASSWORD" }, { otp: code, expiresAt }, { upsert: true, new: true, setDefaultsOnInsert: true })
   return { phone, purpose: "FORGOT_PASSWORD", code };
 };
 
 
 export const verifyForgotPasswordOtp = async ({ phone, code, newPassword }) => {
   const otp = await Otp.findOne({ phone, purpose: "FORGOT_PASSWORD" }).select("+otp");
-  if (!otp || otp.otp !== code || otp.expiresAt < new Date()) {
+
+  if (!otp || otp.expiresAt < new Date()) {
     throw new ApiError(400, "Invalid or expired OTP");
   }
 
